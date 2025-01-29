@@ -8,6 +8,7 @@ db.serialize(() => {
 });
 
 app.set('view engine', 'ejs');
+app.set('views', './views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
@@ -22,6 +23,14 @@ function generateShortLink() {
 
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+app.get('/Logueo', (req, res) => {
+    res.render('Logueo');
+});
+
+app.get('/Registro', (req, res) => {
+    res.render('Registro');
 });
 
 app.post('/shorten', (req, res) => {
@@ -50,3 +59,4 @@ app.get('/:shortUrl', (req, res) => {
 app.listen(3000, () => {
     console.log('Server running on port 3000');
 });
+
